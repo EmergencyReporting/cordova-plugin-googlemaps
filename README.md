@@ -20,7 +20,7 @@
 <img src="https://raw.githubusercontent.com/mapsplugin/cordova-plugin-googlemaps-doc/master/v2.6.0/hello-world/image1.gif"  height="300">
 </td>
 <td>
-<h3>Browser</h3>
+<h3>Browser, Windows</h3>
 <img src="https://raw.githubusercontent.com/mapsplugin/cordova-plugin-googlemaps/master/images/browser_demo.gif" height="300">
 </td>
 </tr>
@@ -50,10 +50,12 @@ Then set your Google Maps API keys into your `config.xml` (Android / iOS).
   </widget>
   ```
 
-For browser platform,
+For browser and windows platforms,
+
+  You need to set **two API keys for Google Maps JavaScript API v3**.
 
   ```js
-  // If your app runs this program on browser,
+  // If your app runs this program on browser or windows,
   // you need to set `API_KEY_FOR_BROWSER_RELEASE` and `API_KEY_FOR_BROWSER_DEBUG`
   // before `plugin.google.maps.Map.getMap()`
   //
