@@ -40,6 +40,7 @@ typedef void (^MYCompletionHandler)(NSError *error);
 @end
 
 @interface NSString (GoogleMapsPlugin)
+- (NSString *)urlencode;
 - (NSString*)regReplace:(NSString*)pattern replaceTxt:(NSString*)replaceTxt options:(NSRegularExpressionOptions)options;
 @end
 
@@ -51,16 +52,6 @@ typedef void (^MYCompletionHandler)(NSError *error);
 
 @interface CDVCommandDelegateImpl (GoogleMapsPlugin)
 - (void)hookSendPluginResult:(CDVPluginResult*)result callbackId:(NSString*)callbackId;
-@end
-
-//
-// Override the webViewDidFinishLoad
-// http://stackoverflow.com/questions/5272451/overriding-methods-using-categories-in-objective-c#5272612
-//
-@interface MainViewController (CDVViewController)
-#if CORDOVA_VERSION_MIN_REQUIRED < __CORDOVA_4_0_0
-- (void)webViewDidFinishLoad:(UIWebView*)theWebView;
-#endif
 @end
 
 //
@@ -82,6 +73,11 @@ typedef void (^TIFAnimationGroupCompletionBlock)();
 + (GMSMutablePath *)getMutablePathFromCircle:(CLLocationCoordinate2D)center radius:(double)radius;
 + (NSString *)getAbsolutePathFromCDVFilePath:(UIView*)theWebView cdvFilePath:(NSString *)cdvFilePath;
 + (NSString *)PGM_LOCALIZATION:(NSString *)key;
++ (void)getJsonWithURL:(NSString *)baseUrlStr params:(NSDictionary *)params completionBlock:(void (^)(BOOL succeeded, NSDictionary *response, NSString *error))completionBlock;
++ (void)getJsonWithURL:(NSURL *)url completionBlock:(void (^)(BOOL succeeded, NSDictionary *response, NSString *error))completionBlock;
++ (double)getZoomFromBounds:(GMSCoordinateBounds *)bounds mapWidth:(double)mapWidth mapHeight:(double)mapHeight;
++ (double)_zoom:(double)mapPx worldPx:(double)worldPx fraction:(double)fraction;
++ (double)_latRad:(double)lat;
 @end
 
 
