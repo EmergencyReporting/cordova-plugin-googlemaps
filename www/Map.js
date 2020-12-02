@@ -834,7 +834,7 @@ Map.prototype.setDiv = function(div) {
     // div.style.display = 'none';
     // div.offsetHeight;
     // div.style.display = '';
-    document.body.style.transform = 'rotateZ(0deg)';
+    //document.body.style.transform = 'rotateZ(0deg)';
 
     self.set('div', div);
 
