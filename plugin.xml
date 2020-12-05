@@ -127,6 +127,8 @@
     <engine name="apple-ios" version=">=10.0.0" />
   </engines>
 
+  <preference name="GPS_REQUIRED" default="true"/>
+
   <!-- android -->
   <platform name="android">
     <info>
@@ -247,7 +249,7 @@
       <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
       <!-- GPS -->
       <uses-feature android:name="android.hardware.location"/>
-      <uses-feature android:name="android.hardware.location.gps"/>
+      <uses-feature android:name="android.hardware.location.gps" android:required="$GPS_REQUIRED"/>
     </config-file>
 
     <resource-file src="src/android/res/layout/dummy_infowindow.xml" target="res/layout/dummy_infowindow.xml"/>
