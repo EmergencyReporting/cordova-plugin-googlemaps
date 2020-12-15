@@ -1377,13 +1377,15 @@ Map.prototype.addMarker = function(markerOptions, callback) {
 
   self.exec.call(self, function(result) {
     if (marker) {
-      markerOptions.icon.size = markerOptions.icon.size || {};
-      markerOptions.icon.size.width = markerOptions.icon.size.width || result.width;
-      markerOptions.icon.size.height = markerOptions.icon.size.height || result.height;
-      markerOptions.icon.anchor = markerOptions.icon.anchor || [markerOptions.icon.size.width / 2, markerOptions.icon.size.height];
-
-      if (!markerOptions.infoWindowAnchor) {
-        markerOptions.infoWindowAnchor = [markerOptions.icon.size.width / 2, 0];
+      if (typeof markerOptions.icon !== 'string') {
+        markerOptions.icon.size = markerOptions.icon.size || {};
+        markerOptions.icon.size.width = markerOptions.icon.size.width || result.width;
+        markerOptions.icon.size.height = markerOptions.icon.size.height || result.height;
+        markerOptions.icon.anchor = markerOptions.icon.anchor || [markerOptions.icon.size.width / 2, markerOptions.icon.size.height];
+  
+        if (!markerOptions.infoWindowAnchor) {
+          markerOptions.infoWindowAnchor = [markerOptions.icon.size.width / 2, 0];
+        }
       }
       marker._privateInitialize(markerOptions);
       delete marker._privateInitialize;
