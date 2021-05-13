@@ -107,7 +107,7 @@ Map.prototype.refreshLayout = function() {
   // document.body.style.display = 'inline-block';
   // document.body.offsetHeight;
   // document.body.style.display = '';
-  document.body.style.transform = 'rotateZ(0deg)';
+  //document.body.style.transform = 'rotateZ(0deg)';
 
   var self = this;
   self.exec.call(self, null, null, self.__pgmId, 'resizeMap', []);
@@ -928,7 +928,7 @@ Map.prototype.setDiv = function(div) {
     // div.style.display = 'none';
     // div.offsetHeight;
     // div.style.display = '';
-    document.body.style.transform = 'rotateZ(0deg)';
+    //document.body.style.transform = 'rotateZ(0deg)';
     div.style.overflow = 'hidden';
     div.style.position = 'relative';
 
