@@ -136,6 +136,8 @@
     <engine name="apple-ios" version=">=10.0.0" />
   </engines>
 
+  <preference name="GPS_REQUIRED" default="true"/>
+
   <!-- android -->
   <platform name="android">
     <info>
@@ -266,7 +268,7 @@
       <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
       <!-- GPS -->
       <uses-feature android:name="android.hardware.location"/>
-      <uses-feature android:name="android.hardware.location.gps"/>
+      <uses-feature android:name="android.hardware.location.gps" android:required="$GPS_REQUIRED"/>
     </config-file>
 
     <resource-file src="src/android/res/layout/dummy_infowindow.xml" target="res/layout/dummy_infowindow.xml"/>
@@ -552,6 +554,62 @@
       <runs/>
     </js-module>
     <js-module name="PluginDirectionsService" src="src/browser/PluginDirectionsService.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginGeocoder" src="src/browser/PluginGeocoder.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginEnvironment" src="src/browser/PluginEnvironment.js">
+      <runs/>
+    </js-module>
+  </platform>
+
+  <!-- windows -->
+  <platform name="windows">
+    <info>
+      Official document https://github.com/mapsplugin/cordova-plugin-googlemaps-doc/blob/master/v2.3.0/README.md Please consider to buy a beer for us 🍺 https://github.com/mapsplugin/cordova-plugin-googlemaps#buy-us-a-beer
+    </info>
+
+    <js-module name="googlemaps-cdv-plugin" src="www/plugin-loader-for-browser.js">
+      <clobbers target="plugin.google.maps"/>
+    </js-module>
+    <js-module name="js_CordovaGoogleMaps" src="www/js_CordovaGoogleMaps-for-browser.js">
+      <runs/>
+    </js-module>
+    <js-module name="CordovaGoogleMaps" src="src/browser/CordovaGoogleMaps.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginMap" src="src/browser/PluginMap.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginMarker" src="src/browser/PluginMarker.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginCircle" src="src/browser/PluginCircle.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginGroundOverlay" src="src/browser/PluginGroundOverlay.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginKmlOverlay" src="src/browser/PluginKmlOverlay.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginMarkerCluster" src="src/browser/PluginMarkerCluster.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginPolygon" src="src/browser/PluginPolygon.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginPolyline" src="src/browser/PluginPolyline.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginStreetViewPanorama" src="src/browser/PluginStreetViewPanorama.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginTileOverlay" src="src/browser/PluginTileOverlay.js">
+      <runs/>
+    </js-module>
+    <js-module name="PluginLocationService" src="src/browser/PluginLocationService.js">
       <runs/>
     </js-module>
     <js-module name="PluginGeocoder" src="src/browser/PluginGeocoder.js">

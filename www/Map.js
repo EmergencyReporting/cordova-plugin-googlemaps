@@ -928,7 +928,7 @@ Map.prototype.setDiv = function(div) {
     // div.style.display = 'none';
     // div.offsetHeight;
     // div.style.display = '';
-    document.body.style.transform = 'rotateZ(0deg)';
+    //document.body.style.transform = 'rotateZ(0deg)';
     div.style.overflow = 'hidden';
     div.style.position = 'relative';
 
@@ -1482,13 +1482,15 @@ Map.prototype.addMarker = function(markerOptions, callback) {
 
   self.exec.call(self, function(result) {
     if (marker) {
-      markerOptions.icon.size = markerOptions.icon.size || {};
-      markerOptions.icon.size.width = markerOptions.icon.size.width || result.width;
-      markerOptions.icon.size.height = markerOptions.icon.size.height || result.height;
-      markerOptions.icon.anchor = markerOptions.icon.anchor || [markerOptions.icon.size.width / 2, markerOptions.icon.size.height];
-
-      if (!markerOptions.infoWindowAnchor) {
-        markerOptions.infoWindowAnchor = [markerOptions.icon.size.width / 2, 0];
+      if (typeof markerOptions.icon !== 'string') {
+        markerOptions.icon.size = markerOptions.icon.size || {};
+        markerOptions.icon.size.width = markerOptions.icon.size.width || result.width;
+        markerOptions.icon.size.height = markerOptions.icon.size.height || result.height;
+        markerOptions.icon.anchor = markerOptions.icon.anchor || [markerOptions.icon.size.width / 2, markerOptions.icon.size.height];
+  
+        if (!markerOptions.infoWindowAnchor) {
+          markerOptions.infoWindowAnchor = [markerOptions.icon.size.width / 2, 0];
+        }
       }
       marker._privateInitialize(markerOptions);
       delete marker._privateInitialize;

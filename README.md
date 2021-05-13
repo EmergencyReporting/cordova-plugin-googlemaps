@@ -50,7 +50,9 @@ Then set your Google Maps API keys into your `config.xml` (Android / iOS).
   </widget>
   ```
 
-For browser and Windows platforms,
+For browser and windows platforms,
+
+  You need to set **two API keys for Google Maps JavaScript API v3**.
 
   ```js
   // If your app runs this program on browser or windows,
