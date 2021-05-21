@@ -30,6 +30,10 @@ proguard/
 .idea/
 build/
 
+#vim temp files
+*.*~
+*.swp
+
 # platform assets
 platforms/android/assets/www/*
 platforms/ios/www/*
